@@ -2,9 +2,9 @@ Front-end Job Interview Questions - HTML Questions
 
 Я думаю эта ситуация знакома многим Frontend-разработчикам, после того, как вам назначают дату интервью, возникает вопрос "Что меня ждет?". Это происходит потому, что мир Frontend разработки очень обширен и включает в себя как базовые области (такие как HTML, CSS, JavaScript), так и множество специфичных тем (JavaScript фрейморки, работа с графикой и анимацией, методологии разработки и много чего еще). В ходе подготовки к собственному интервью я посмотрел множество ресурсов, какие то были лучше, какие то вызывали у меня только больше вопросов, но самым полезным для меня оказался список вопросов Front-end-Developer-Interview-Questions[https://github.com/h5bp/Front-end-Developer-Interview-Questions] и я решил поработать над ним.
 
-!Я пишу эту заметку чтобы зафиксировать свои собственные ответы (как советовала Emma Wedekind[https://dev.to/emmawedekind/decoding-the-front-end-interview-process-14dl], подумать над вопросами вслух:)) и, возможно, начать интересную дисскусию в комментариях. Но не относитесь к моим ответам как к чистой истине, я обычный разработчик который тоже может ошибаться:)
+I wrote this note to capture my own answers and maybe start an interesting discussion in the comments. But don't treat my answers as pure truth, I'm a regular developer who can be wrong too:)
 
-!С полным списком вопросов вы можете ознакомится на GitHub[https://github.com/h5bp/Front-end-Developer-Interview-Questions], проект активно развивается и вы можете стать его частью.
+You can found the full list of question on GitHub[https://github.com/h5bp/Front-end-Developer-Interview-Questions], the project is actively developing and you can become part of it.
 
 ## What does a doctype do?
 
@@ -135,7 +135,7 @@ Therefore, if possible, replace the images with text on clean images and overlay
 
 1. Даже если вы сделали автоматически выбор языка и он отлично работает не забудьте сделать переключатель для смены языка и он должен быть легкодоступным и понятным пользователю. Да, я считюа это тоже работа фронтенд разработчика заботится об удобстве пользователя. Мы же с вами разрабатываем интерфесы для людей и нам важен их комфорт:)
 
-1. Не забывайте, что не все языки читаются одинаково. Например языки на котором говорят на Ближнем Востоке читаются справа на лево и вам нужно это учитывать, если вас сайт поддерживает эти языки. Вы можете приминять специальные классы и стилизовать с помощью CSS выравнивание текста и блоков по правой стороне, но это будет не лучшее решений. Хорошей практикой для установки направления текста будет использование атрибут `dir` со значением `rtl` (справа налево). Because text direction is semantically tied to content and not to presentation.
+1. Remember that not all languages are read the same way. For example, the languages spoken in the Middle East are read from right to left and you need to take this into account if your site supports these languages. You can add special classes and write styles to align text and blocks on the right side, but this isn't the best solution. It is good practice to set the direction of the text use the `dir` attribute with the value `rtl` (right to left). Because text direction is semantically tied to content and not to a presentation.
 
 ```html
 <body>
@@ -146,13 +146,13 @@ Therefore, if possible, replace the images with text on clean images and overlay
 </body>
 ```
 
-Поробнее на эту темы пишет Robert Dodis for Smashing Magazine[https://www.smashingmagazine.com/2017/11/right-to-left-mobile-design/]
+Read more on this topic by Robert Dodis for Smashing Magazine[https://www.smashingmagazine.com/2017/11/right-to-left-mobile-design/]
 
-1. Будьте уверены что пользователь понимает, что вы от него хотите. Проверьте, чтобы все сообщения об ошибках или капчи (если вы используете собственные решения основанные на тексте) используют язык, который выбрал пользователь.
+1. Be sure that the user understands what you want from him. Make sure that all errors, warnings, tips or captcha (if uou using your own text-based solutions) use the language that the user selected .
 
-1. При использовании масок для телефона (либо любых других) будьте уверены, что они корректно работают для всех типов номеров (но все же лучше не использовать решения, которые будут ограничивать пользователя), будет очень плохо если клиент уйдет так и не оставив свои данные.
+1. When you using masks for the phone (or any other) be sure that they work correctly for all types of numbers (but it's better don't use solutions that will limit the user), it will be very bad if the client leaves without leaving his data.
 
-1. Помните, что не в каждой стране используется один и тот же формат даты. For example, in the UK and Europe it’s common to format the date as date-month-year, whereas in the U.S. it’s formatted month-date-year. You may also need to translated units of measure, depending on your target audience. While 90% of the world uses the metric system, the U.S., Liberia and Myanmar still use the Imperial system of weights and measures.
+1. Remebmer the differences in the date format. For example, in the UK and Europe it’s common to format the date as date-month-year, whereas in the U.S. it’s formatted month-date-year. You may also need to translated units of measure, depending on your target audience. While 90% of the world uses the metric system, the U.S., Liberia and Myanmar still use the Imperial system of weights and measures.
 
 1. Using icons also has a number of limitations. For example, icons indicating the direction will need to be expanded for languages that are readable from right to left. Some icons may seem offensive to people of some nationalities. And some icons may simple be incomprehensible to users because the development wasn't taken into account cultural characteristics. So think carefully about the choice of icons for your interface.
 
