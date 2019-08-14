@@ -1,4 +1,4 @@
-Front-end Job Interview Questions - HTML Questions
+# Front-end Job Interview Questions - HTML Questions
 
 After that you have scheduled the date of the interview, many Frontend developers ask themselves "What awaits me?". This is happening because the world of Frontend development is very vast and includes both basic areas (such as HTML, CSS, JavaScript) and many specific topics (JavaScript frameworks and libraries, writing tests, working with graphics and animation and much more). In preparation for my own interview I looked at a lot of resources, some of which were better, some that caused me only more questions, but the most userful for me was a list of questions Front-end-Developer-Interview-Questions[https://github.com/h5bp/Front-end-Developer-Interview-Questions] and I decided to work on it.
 
@@ -185,16 +185,18 @@ I gave just a part of the tips and things that you should pay attention to when 
 
 ## What are data- attributes good for?
 
-`data-` это атрибут был придуман для стандартизации хранения и работы с пользовательскими данными в HTML. Использовать data attribute стоит если для хранения пользовательских данных у элемента нет других атрибутов и если эти данные должно быть скрыты (условно скрыты) от пользователя. Каждый элемент HTML может иметь любое количество data attribute.
+`data-` this attribute was invented to standardize the storage of user data in HTML. You should use the data attribute only be used when there are no other appropriate HTML elements or attributes. Each HTML element can have any number of data attributes.
+
+The most popular case for using the data attribute for me is using them to write tests (e.g. via Jest).
 
 ### HTML syntax
 
-The syntax is simple. Любой data attribute состоит из двух элементов:
+The syntax is simple. Any data attribute consists of two elements:
 
-1. Имя отрибута которое идет после `data-` (должно содержать минимум один символ, но может состоять из нескольких слов которые будут разделяться тире)
-1. Значение отрибута (любая строка)
+1. the name of the attribute that comes after `data-` (must contain at least one character and may consist of several words that will be separated by a dash)
+1. The value of the attribute (string)
 
-Вот так описывается элемент с тремя data attribute.
+This describes an element with three data attributes.
 
 ```html
 <section
@@ -207,15 +209,14 @@ The syntax is simple. Любой data attribute состоит из двух э�
 </section>
 ```
 
-При использовании data attribute вам нужно учитывать ряд особенностей:
+When using data attribute, you need to consider a number of features:
 
-1. Все данные хранящиеся в data attribute будут игнорироваться поисковыми роботами
-1. Данные скрыты не полностью и пользователь все же имеет к ним доступ через инспектор кода в браузере.
+1. All data stored in the data attribute will be ignored by search engines
+1. The data isn't completely hidden and the user still has access to it through the code inspector in the browser
 
 ### JavaScript access
 
-Через JavaScript можно очень легко получить данных из data attribute. Для этого вам нужно найти элемент с помощью `querySelector`, затем воспользоваться свойством
-`dataset` и прочитать любые данные из data attribute.
+It is very easy to get data from data attribute via JavaScript. To do this you need to find the element using `querySelector`, then use the property `dataset` and read any data from the data attribute.
 
 ```js
 const section = document.querySelector(".blog");
@@ -225,8 +226,15 @@ section.dataset.test; // blog
 section.dataset.testValue; // attribute
 ```
 
-### CSS access
+Note if you use a name for the data attribute consisting of two words, the dashes are converted to camelCase.
 
-Обратите внимание, если вы используете имя для data attribute состоящее из двух слов тире преобразуются в camelCase.
+### References
 
-Самый популярный кейс использования data attribute для меня в последнее время - это использование их для написания тестов (например через Jest)
+1. https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
+1. https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*
+
+## Consider HTML5 as an open web platform. What are the building blocks of HTML5?
+
+### References
+
+1. https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5
