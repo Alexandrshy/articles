@@ -1,6 +1,6 @@
 Front-end Job Interview Questions - HTML Questions
 
-Я думаю эта ситуация знакома многим Frontend-разработчикам, после того, как вам назначают дату интервью, возникает вопрос "Что меня ждет?". Это происходит потому, что мир Frontend разработки очень обширен и включает в себя как базовые области (такие как HTML, CSS, JavaScript), так и множество специфичных тем (JavaScript фрейморки, работа с графикой и анимацией, методологии разработки и много чего еще). В ходе подготовки к собственному интервью я посмотрел множество ресурсов, какие то были лучше, какие то вызывали у меня только больше вопросов, но самым полезным для меня оказался список вопросов Front-end-Developer-Interview-Questions[https://github.com/h5bp/Front-end-Developer-Interview-Questions] и я решил поработать над ним.
+After that you have scheduled the date of the interview, many Frontend developers ask themselves "What awaits me?". This is happening because the world of Frontend development is very vast and includes both basic areas (such as HTML, CSS, JavaScript) and many specific topics (JavaScript frameworks and libraries, writing tests, working with graphics and animation and much more). In preparation for my own interview I looked at a lot of resources, some of which were better, some that caused me only more questions, but the most userful for me was a list of questions Front-end-Developer-Interview-Questions[https://github.com/h5bp/Front-end-Developer-Interview-Questions] and I decided to work on it.
 
 I wrote this note to capture my own answers and maybe start an interesting discussion in the comments. But don't treat my answers as pure truth, I'm a regular developer who can be wrong too:)
 
@@ -131,9 +131,9 @@ TODO: Adde examples
 
 Therefore, if possible, replace the images with text on clean images and overlay the text separately using HTML and CSS. It will be better for you and your users:)
 
-1. Перенаправляйте пользователей на версию сайта на их языке, для этого используйте настройки системы пользователя. Также важным элементом для мультиязычнях сайтов является переключатель языков. Он должен доступен на всех страницах и максимально понятным пользователю. Хорошей практикой будет сделать его отдельным выпадающим списком с лейблом "Other languages". Мое мнение, что использование логотипа для смены языка плохое решений, потому что новый пользователь не знаком с вашим интерфейсом и если он хочет быстро сменить язык и продолжить использование вашего сайта, ему будет проще воспользоваться поиском по сайту и сразу преключить язык на котором ему будет комфортнее.
+1. Redirect users to the version of the site in their language, for this, use the user's system setting. But you can not limit yourself to autmatic language switching, always give the user opportunity to change the language.
 
-1. Даже если вы сделали автоматически выбор языка и он отлично работает не забудьте сделать переключатель для смены языка и он должен быть легкодоступным и понятным пользователю. Да, я считюа это тоже работа фронтенд разработчика заботится об удобстве пользователя. Мы же с вами разрабатываем интерфесы для людей и нам важен их комфорт:)
+1. Based on the previous point, it is important to make a convenient language switch. It's good practice to make it a separate drop-down list with the label "Other langauges". In my opinion using a logo/flag/other graphical elements to change the language is bad practice, because a new user isn't familiar with your interface and if he wants to quickly change the language and continue using your site.
 
 1. Remember that not all languages are read the same way. For example, the languages spoken in the Middle East are read from right to left and you need to take this into account if your site supports these languages. You can add special classes and write styles to align text and blocks on the right side, but this isn't the best solution. It is good practice to set the direction of the text use the `dir` attribute with the value `rtl` (right to left). Because text direction is semantically tied to content and not to a presentation.
 
@@ -182,3 +182,51 @@ I gave just a part of the tips and things that you should pay attention to when 
 1. https://www.ionos.com/digitalguide/online-marketing/search-engine-marketing/hreflang-basics-examples-and-common-errors/
 1. https://www.shutterstock.com/blog/color-symbolism-and-meanings-around-the-world
 1. https://www.smashingmagazine.com/2017/11/right-to-left-mobile-design/
+
+## What are data- attributes good for?
+
+`data-` это атрибут был придуман для стандартизации хранения и работы с пользовательскими данными в HTML. Использовать data attribute стоит если для хранения пользовательских данных у элемента нет других атрибутов и если эти данные должно быть скрыты (условно скрыты) от пользователя. Каждый элемент HTML может иметь любое количество data attribute.
+
+### HTML syntax
+
+The syntax is simple. Любой data attribute состоит из двух элементов:
+
+1. Имя отрибута которое идет после `data-` (должно содержать минимум один символ, но может состоять из нескольких слов которые будут разделяться тире)
+1. Значение отрибута (любая строка)
+
+Вот так описывается элемент с тремя data attribute.
+
+```html
+<section
+  class="blog"
+  data-id="200"
+  data-test="blog"
+  data-test-value="attribute"
+>
+  ...
+</section>
+```
+
+При использовании data attribute вам нужно учитывать ряд особенностей:
+
+1. Все данные хранящиеся в data attribute будут игнорироваться поисковыми роботами
+1. Данные скрыты не полностью и пользователь все же имеет к ним доступ через инспектор кода в браузере.
+
+### JavaScript access
+
+Через JavaScript можно очень легко получить данных из data attribute. Для этого вам нужно найти элемент с помощью `querySelector`, затем воспользоваться свойством
+`dataset` и прочитать любые данные из data attribute.
+
+```js
+const section = document.querySelector(".blog");
+
+section.dataset.id; // 200
+section.dataset.test; // blog
+section.dataset.testValue; // attribute
+```
+
+### CSS access
+
+Обратите внимание, если вы используете имя для data attribute состоящее из двух слов тире преобразуются в camelCase.
+
+Самый популярный кейс использования data attribute для меня в последнее время - это использование их для написания тестов (например через Jest)
