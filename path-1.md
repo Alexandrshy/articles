@@ -278,10 +278,10 @@ I think we should finish the first part. I also post this article in (repository
 
 Please give me feedback on how interesting this topic is to you. Also, I will be glad if you share stories in the comments, how your interviews were, what questions you were asked, what tasks you were given to solve. I plan to consider not only questions from [the list](https://github.com/h5bp/Front-end-Developer-Interview-Questions) but also to discuss interesting questions from the comments and from my personal experience. In the future, I would also like to discuss some technical examples and approaches to their solution. But all this later😁
 
-And now thank you for your attention and have a nice day👋
-
 ## Reference to other community responses
 
 1. [Repository @yangshun](https://github.com/yangshun/front-end-interview-handbook)
 1. [Repository @utatti](https://github.com/utatti/Front-end-Developer-Interview-Questions-And-Answers)
 1. [Repository @khan4019](https://github.com/khan4019/front-end-Interview-Questions)
+
+Thank you for your attention and have a nice day👋
