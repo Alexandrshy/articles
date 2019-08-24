@@ -1,4 +1,4 @@
-# Data structures. Binary Search Tree in JavaScript [Draft]
+# Data structures. Binary Search Tree in JavaScript
 
 In parallel to a series of articles where I make out [question for interviews with Frontend developers](https://dev.to/alexandrshy/frontend-job-interview-questions-1-html-questions-mej) I decided to touch on a more practical topic — algorithms and data structures. In these articles, we'll try to analyze Binary Search Trees and write our implementation in JavaScript.
 
