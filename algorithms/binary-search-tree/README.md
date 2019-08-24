@@ -86,7 +86,7 @@ class BST {
    * Determines if a given value exists in the tree
    * @param {number} data The value to find
    */
-  find(data) {}
+  search(data) {}
 
   /**
    * Remove the value from the tree
@@ -159,14 +159,14 @@ tree.toString();
 // "{"data":13,"left":{"data":3,"left":null,"right":null},"right":{"data":37,"left":null,"right":null}}"
 ```
 
-Everything works! ☺️ But we can't stop, let's now implement the find method.
+Everything works! ☺️ But we can't stop, let's now implement the search method.
 
-### Finding for a value in the tree
+### Searching for a value in the tree
 
-The search algorithm's similar to the algorithm that we discussed earlier. Starting with the root element, check the value of the nodes. If it's less than the current node goes to the left, if more to the right. If there are no more nodes to check, then the item you're looking for isn't in the tree.
+The search algorithm's similar to the algorithm that we discussed earlier. Starting with the root element, check the value of the nodes. If it's less than the current node goes to the left if more to the right. If there are no more nodes to check, then the item you're looking for isn't in the tree.
 
 ```js
-isContain(data) {
+search(data) {
   /**
    * Recursively traverse
    * @param {Object} current Current node
@@ -189,9 +189,9 @@ const tree = new BST();
 tree.add(13);
 tree.add(3);
 tree.add(37);
-tree.isContain(13); // true
-tree.isContain(37); // true
-tree.isContain(42); // false
+tree.search(13); // true
+tree.search(37); // true
+tree.search(42); // false
 ```
 
 Everything works fine ☺️ We have to implement the remove method.
@@ -277,6 +277,6 @@ You can build your own binary search tree and experiment, it will give you a bet
 
 ## Conclusion
 
-We have considered how to build a binary search tree. We have reviewed the basic interface of the binary search tree with methods: add, find and remove. We wrote our own implementation in JavaScript (source code on [GitHub]() and [Jsfiddle]()). That's all for now in the next part we'll discuss new methods for our implementation and look at practical tasks [Leetcode](https://leetcode.com/) and [Hackerrank](https://www.hackerrank.com/).
+We have considered how to build a binary search tree. We have reviewed the basic interface of the binary search tree with methods: add, search and remove. We wrote our own implementation in JavaScript (source code on [GitHub]() and [Jsfiddle]()). That's all for now in the next part we'll discuss new methods for our implementation and look at practical tasks [Leetcode](https://leetcode.com/) and [Hackerrank](https://www.hackerrank.com/).
 
 Thank you for your attention and have a nice day 👋
