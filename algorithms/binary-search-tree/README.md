@@ -130,7 +130,7 @@ add(data) {
         return null;
       }
     };
-    return searchTree(this.root);
+    return searchNode(this.root);
   }
 };
 ```
@@ -154,9 +154,14 @@ const tree = new BST();
 tree.add(13);
 tree.add(3);
 tree.add(37);
-tree.toString();
+```
 
-// "{"data":13,"left":{"data":3,"left":null,"right":null},"right":{"data":37,"left":null,"right":null}}"
+Print the result
+
+```js
+console.log(tree.toString());
+
+// {"data":13,"left":{"data":3,"left":null,"right":null},"right":{"data":37,"left":null,"right":null}}
 ```
 
 Everything works! ☺️ But we can't stop, let's now implement the search method.
@@ -252,24 +257,53 @@ remove(data) {
       if (current.left === null) return current.right;
       if (current.right === null) return current.left;
       let replacement = current.left;
-      let replacemenParent = current;
+      let replacementParent = current;
       /**
        * Find the best replacement
        */
-      while (replacemenParent.right !== null) {
-        replacemenParent = replacment;
+      while (replacementParent.right !== null) {
+        replacementParent = replacement;
         replacement = replacement.right;
       }
-      current.data = replacemenParent.data;
-      current.left = removeNode(current.left, replacemenParent.data);
+      current.data = replacementParent.data;
+      current.left = removeNode(current.left, replacementParent.data);
     }
-    return node;
+    return current;
   };
   this.root = removeNode(this.root, data);
 };
 ```
 
-The method is ready 😌 I understand this method may seem a little complicated so let's visualize once again the removal of the node. To do this, we’ll use [binary search tree visualizer](https://www.cs.usfca.edu/~galles/visualization/BST.html)
+The method is ready. We just have to check it.
+
+```js
+const tree = new BST();
+tree.add(13);
+tree.add(8);
+tree.add(6);
+tree.add(11);
+tree.add(12);
+tree.add(37);
+tree.add(24);
+tree.add(42);
+tree.add(16);
+tree.add(29);
+tree.add(55);
+tree.remove(90);
+tree.remove(12);
+tree.remove(42);
+tree.remove(37);
+```
+
+Print the result
+
+```js
+console.log(tree.toString());
+
+// {"data":13,"left":{"data":8,"left":{"data":6,"left":null,"right":null},"right":{"data":11,"left":null,"right":null}},"right":{"data":29,"left":{"data":24,"left":{"data":16,"left":null,"right":null},"right":null},"right":{"data":55,"left":null,"right":null}}}
+```
+
+Everything is good 😌 I understand this method may seem a little complicated so let's visualize once again the removal of the node. To do this, we’ll use [binary search tree visualizer](https://www.cs.usfca.edu/~galles/visualization/BST.html).
 
 ![Alt Text](https://thepracticaldev.s3.amazonaws.com/i/5rns0v7b2r5vc68yp9bh.gif)
 
@@ -277,6 +311,6 @@ You can build your own binary search tree and experiment, it will give you a bet
 
 ## Conclusion
 
-We have considered how to build a binary search tree. We have reviewed the basic interface of the binary search tree with methods: add, search and remove. We wrote our own implementation in JavaScript (source code on [GitHub]() and [Jsfiddle]()). That's all for now in the next part we'll discuss new methods for our implementation and look at practical tasks [Leetcode](https://leetcode.com/) and [Hackerrank](https://www.hackerrank.com/).
+We have considered how to build a binary search tree. We have reviewed the basic interface of the binary search tree with methods: add, search and remove. We wrote our own implementation in JavaScript (source code on [GitHub](https://github.com/Alexandrshy/articles/blob/master/algorithms/binary-search-tree/binary-search-tree.js) and [Jsfiddle](https://jsfiddle.net/cvLs9qd3/)). That's all for now in the next part we'll discuss new methods for our implementation and look at practical tasks [Leetcode](https://leetcode.com/) and [Hackerrank](https://www.hackerrank.com/).
 
 Thank you for your attention and have a nice day 👋

@@ -39,7 +39,7 @@ class BST {
           return null;
         }
       };
-      return searchTree(this.root);
+      return searchNode(this.root);
     }
   }
 
@@ -73,15 +73,15 @@ class BST {
         if (current.left === null) return current.right;
         if (current.right === null) return current.left;
         let replacement = current.left;
-        let replacemenParent = current;
-        while (replacemenParent.right !== null) {
-          replacemenParent = replacment;
+        let replacementParent = current;
+        while (replacementParent.right !== null) {
+          replacementParent = replacement;
           replacement = replacement.right;
         }
-        current.data = replacemenParent.data;
-        current.left = removeNode(current.left, replacemenParent.data);
+        current.data = replacementParent.data;
+        current.left = removeNode(current.left, replacementParent.data);
       }
-      return node;
+      return current;
     };
     this.root = removeNode(this.root, data);
   }
@@ -90,3 +90,25 @@ class BST {
     return JSON.stringify(this.root);
   }
 }
+
+const tree = new BST();
+tree.add(13);
+tree.add(8);
+tree.add(6);
+tree.add(11);
+tree.add(12);
+tree.add(37);
+tree.add(24);
+tree.add(42);
+tree.add(16);
+tree.add(29);
+tree.add(55);
+console.log(JSON.parse(tree.toString()));
+tree.search(13);
+tree.search(37);
+tree.search(42);
+tree.remove(90);
+tree.remove(12);
+tree.remove(42);
+tree.remove(37);
+console.log(JSON.parse(tree.toString()));
