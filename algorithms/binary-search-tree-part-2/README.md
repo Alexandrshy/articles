@@ -1,4 +1,4 @@
-# Data structures. Binary Search Tree in JavaScript (Part-2: practicing)
+# Data structures. Binary Search Tree in JavaScript (Part-2: Practicing)
 
 In the previous post [Binary Search Tree in JavaScript](https://dev.to/alexandrshy/data-structures-binary-search-tree-in-javascript-3om9) we wrote our own implementation in JavaScript with a basic interface. Now we'll try to expand it.
 
@@ -150,6 +150,7 @@ Since in the binary search tree the value is already sorted to get the maximum v
 
 ```js
 findMax() {
+  if (this.root === null) return null;
   let current = this.root;
   if (!current) return null;
   while (current.right) {
@@ -178,6 +179,7 @@ Now let's do the same for the left child node and we'll get the minimum value. I
 
 ```js
 findMin() {
+  if (this.root === null) return null;
   let current = this.root;
   if (!current) return null;
   while (current.left) {
@@ -197,5 +199,5 @@ findMin() {
 Check the result for the tree that was considered earlier.
 
 ```js
-tree.findMin(); // 6
+console.log(tree.findMin()); // 6
 ```
