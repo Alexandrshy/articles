@@ -1,4 +1,4 @@
-# Data structures. Binary Search Tree in JavaScript (Part-2: Practicing)
+# Data structures. Binary Search Tree in JavaScript (Part-2: Practice)
 
 In the previous post [Binary Search Tree in JavaScript](https://dev.to/alexandrshy/data-structures-binary-search-tree-in-javascript-3om9) we wrote our own implementation in JavaScript with a basic interface. Now we'll try to expand it.
 
