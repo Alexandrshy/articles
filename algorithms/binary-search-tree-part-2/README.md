@@ -273,7 +273,7 @@ Congratulations, we solved the first problem 🙂
 
 [Link to LeetCode](https://leetcode.com/problems/same-tree/) Note: the binary tree interface in our implementation and on the site is different
 [Link to Jsfiddle](https://jsfiddle.net/alexandrshy/tb50p8h3/15/)
-[Link to GitHub]()
+[Link to GitHub](https://github.com/Alexandrshy/articles/blob/master/algorithms/binary-search-tree-part-2/same-tree/same-tree.js)
 
 ## Merge Two Binary Trees
 
@@ -304,7 +304,7 @@ Merged tree:
 
 ### Solution
 
-...
+To solve the problem, we need to completely traverse both binary trees. At each iteration, we'll create a new node and check if there are nodes of each of the trees `tree1` and `tree2`. If this is true, we add a new value (the sum of two nodes) to the current node. Then, for the left and right nodes, we call the `mergeTrees` function. If at any step one of the trees turns out to be empty, we'll return the child node of the other tree. After all nodes of both trees are completely traversed, we return a new binary tree.
 
 ```js
 /**
@@ -329,22 +329,66 @@ Note: all the conditions of the tasks have been completed and LeetCode accepts t
 
 [Link to LeetCode](https://leetcode.com/problems/merge-two-binary-trees/)
 [Link to Jsfiddle](https://jsfiddle.net/alexandrshy/ke74fcsp/2/)
-[Link to GitHub]()
+[Link to GitHub](https://github.com/Alexandrshy/articles/blob/master/algorithms/binary-search-tree-part-2/merge-two-binary-trees/merge-two-binary-trees.js)
 
 ## Diameter of Binary Tree
 
 ### Problem
 
+Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
+
 ### Example 1
+
+Given a binary tree
+
+```
+       4
+      / \
+     2   5
+    / \
+   1   3
+```
+
+Return 3, which is the length of the path [1,2,4,5] or [3,2,4,5].
+
+Note: The length of path between two nodes is represented by the number of edges between them.
 
 ### Solution
 
+...
+
 ```js
+/**
+ * Calculate diameter with center `root`
+ * @param {TreeNode} root
+ * @returns {number}
+ */
+const countDiameter = root => {
+  if (!root) return 0;
+
+  return 1 + Math.max(countDiameter(root.left), countDiameter(root.right));
+};
+
+/**
+ * @param {TreeNode} root
+ * @returns {number}
+ */
+const diameterOfBinaryTree = root => {
+  if (!root) return 0;
+
+  const center = countDiameter(root.left) + countDiameter(root.right);
+  const left = diameterOfBinaryTree(root.left);
+  const right = diameterOfBinaryTree(root.right);
+
+  return Math.max(center, left, right);
+};
 ```
+
+...
 
 [Link to LeetCode](https://leetcode.com/problems/diameter-of-binary-tree/)
 [Link to Jsfiddle]()
-[Link to GitHub]()
+[Link to GitHub](https://github.com/Alexandrshy/articles/blob/master/algorithms/binary-search-tree-part-2/diameter-of-binary-tree/diameter-of-binary-tree.js)
 
 // https://leetcode.com/problems/binary-tree-inorder-traversal/
 // https://leetcode.com/problems/symmetric-tree/
