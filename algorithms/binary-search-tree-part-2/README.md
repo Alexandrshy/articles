@@ -208,9 +208,9 @@ To practice, you can implement your own additional methods. I'll get to the prac
 
 ### Problem
 
-Given two binary trees, write a function to check if they are the same or not.
+Given two binary trees, write a function to check if they're the same or not.
 
-Two binary trees are considered the same if they are structurally identical and the nodes have the same value.
+Two binary trees considered the same if they're structurally identical and the nodes have the same value.
 
 ### Example 1
 
@@ -250,7 +250,7 @@ Output: false
 
 ### Solution
 
-The easiest strategy to solve this problem is to use recursion. We need to compare each node of two trees and if they are equal return `true`.
+The easiest strategy to solve this problem is to use recursion. We need to compare each node of two trees and if they're equal return `true`.
 
 ```js
 /**
@@ -271,9 +271,9 @@ const isSameTree = (tree1, tree2) => {
 
 Congratulations, we solved the first problem 🙂
 
-[Link to LeetCode](https://leetcode.com/problems/same-tree/) Note: the binary tree interface in our implementation and on the site is different
-[Link to Jsfiddle](https://jsfiddle.net/alexandrshy/tb50p8h3/15/)
-[Link to GitHub](https://github.com/Alexandrshy/articles/blob/master/algorithms/binary-search-tree-part-2/same-tree/same-tree.js)
+- [Link to LeetCode](https://leetcode.com/problems/same-tree/) Note: the binary tree interface in our implementation and on the site is different
+- [Link to Jsfiddle](https://jsfiddle.net/alexandrshy/tb50p8h3/15/)
+- [Link to GitHub](https://github.com/Alexandrshy/articles/blob/master/algorithms/binary-search-tree-part-2/same-tree/same-tree.js)
 
 ## Merge Two Binary Trees
 
@@ -327,9 +327,9 @@ const mergeTrees = (tree1, tree2) => {
 
 Note: all the conditions of the tasks have been completed and LeetCode accepts this decision, but the merge result has a problem. When merge two trees breaks the logic of the right child node. If one tree contained the right child node and the other did not, after the merge, the right child node may become smaller than the parent node. As a practice, you can solve this problem 😉
 
-[Link to LeetCode](https://leetcode.com/problems/merge-two-binary-trees/)
-[Link to Jsfiddle](https://jsfiddle.net/alexandrshy/ke74fcsp/2/)
-[Link to GitHub](https://github.com/Alexandrshy/articles/blob/master/algorithms/binary-search-tree-part-2/merge-two-binary-trees/merge-two-binary-trees.js)
+- [Link to LeetCode](https://leetcode.com/problems/merge-two-binary-trees/)
+- [Link to Jsfiddle](https://jsfiddle.net/alexandrshy/ke74fcsp/2/)
+- [Link to GitHub](https://github.com/Alexandrshy/articles/blob/master/algorithms/binary-search-tree-part-2/merge-two-binary-trees/merge-two-binary-trees.js)
 
 ## Diameter of Binary Tree
 
@@ -349,13 +349,27 @@ Given a binary tree
    1   3
 ```
 
-Return 3, which is the length of the path [1,2,4,5] or [3,2,4,5].
+Return 3, which is the length of the path `[1, 2, 4, 5]` or `[3, 2, 4, 5]`.
 
 Note: The length of path between two nodes is represented by the number of edges between them.
 
 ### Solution
 
-...
+In the example, the longest path goes through the root. To calculate the length of such a path, just look at the maximum length of the right and left branches. To do this, we create the `countDiameter` function. This function will be called recursively and count the length of each path. But the longest path may not go through the center, for example:
+
+```
+       9
+      /
+     8
+    / \
+   4   6
+  /     \
+ 3       7
+  \
+    5
+```
+
+Here the longest path `[5, 3, 4, 8, 6, 7]` doesn't go through the center. To do this, we will recursively call the `diameterOfBinaryTree` method for each element of the tree and then find the longest path using `Math.max`. This isn't the best option, since we will have to go through each node a large number of times, but I think it's intuitive.
 
 ```js
 /**
@@ -384,13 +398,19 @@ const diameterOfBinaryTree = root => {
 };
 ```
 
-...
+Implementation is ready, you can test it 👏
 
-[Link to LeetCode](https://leetcode.com/problems/diameter-of-binary-tree/)
-[Link to Jsfiddle]()
-[Link to GitHub](https://github.com/Alexandrshy/articles/blob/master/algorithms/binary-search-tree-part-2/diameter-of-binary-tree/diameter-of-binary-tree.js)
+- [Link to LeetCode](https://leetcode.com/problems/diameter-of-binary-tree/)
+- [Link to Jsfiddle](https://jsfiddle.net/alexandrshy/r0qz2nc9/)
+- [Link to GitHub](https://github.com/Alexandrshy/articles/blob/master/algorithms/binary-search-tree-part-2/diameter-of-binary-tree/diameter-of-binary-tree.js)
 
-// https://leetcode.com/problems/binary-tree-inorder-traversal/
-// https://leetcode.com/problems/symmetric-tree/
-// https://leetcode.com/problems/univalued-binary-tree/
-// https://leetcode.com/problems/balanced-binary-tree/
+We have analyzed several problems, I hope you understand how to work with binary search trees and how to solve similar problems. On the site [LeetCode](https://leetcode.com/) and [Hackerrank](https://hackerrank.com) you can find ever more interesting challenges on various topics. And I made a small list of tasks that will help you remember information about trees:
+
+- [Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)
+- [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)
+- [Univalued Binary Tree](https://leetcode.com/problems/univalued-binary-tree/)
+- [Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/)
+
+You can share your decision or question in the comments 😀
+
+Thank you for your attention and have a nice day 👋
